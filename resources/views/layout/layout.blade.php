@@ -16,17 +16,20 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="navbar-nav">
-            <a href="/" class="nav-item nav-link"> Home </a>
             <a href="/questionario" class="nav-item nav-link"> Questionário </a>
             <a href="/cadastrar" class="nav-item nav-link"> Cadastrar Perguntas </a>
         </div>
     </nav>
     <div class="container">
-        <div class="title m-d-md">
+        <br>
+        <div class="title m-d-md col-10 offset-1">
             <h1> @yield('titulo') </h1>
+            <br>
         </div>
         <section>
-            @yield('conteudo')
+            <div class="col-10 offset-1">
+                @yield('conteudo')
+            </div>
         </section>
     </div>
 </body>

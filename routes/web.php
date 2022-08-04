@@ -16,12 +16,16 @@ use App\Http\Controllers\QuestionarioController;
 */
 
 Route::get('/', function () {
+    return redirect('/cadastrar');
+});
+
+Route::get('/home', function () {
     return view('home');
 });
 
 //Route::resource('perguntas-respostas', PerguntasRespostasController::class);
 
-Route::get('/cadastrar', [PerguntasRespostasController::class, 'index']);
+Route::get('/cadastrar', [PerguntasRespostasController::class, 'index'])->name('cadastro-perguntas');
 Route::post('/store', [PerguntasRespostasController::class, 'store']);
 Route::get('/questionario', [QuestionarioController::class, 'index']);
 Route::post('/questionario/salvar', [QuestionarioController::class, 'store']);

@@ -5,7 +5,7 @@
 @endsection
 
 @section('conteudo')
-    @if (!empty($perguntas))
+    @if (!empty($perguntas) && sizeof($perguntas) > 2)
         <form action="{{ url('/questionario/salvar') }}" method="POST" class="form-horizontal">
             @csrf
             <div class="form-group">
@@ -71,14 +71,19 @@
                 </label>
             </div>
             <br>
-            <div>
-                <a href="/home" class="btn btn-danger">Cancelar</a>
+            <div class="d-grid gap-5 d-md-flex justify-content-md-center">
+                <a href="/home" class="btn btn-danger me-md-2">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Responder</button>
             </div>
         </form>
+    @elseif(empty($perguntas))
+        <div class="alert alert-danger">
+            Não existem perguntas cadastradas. <a href="/cadastrar">Cadastre aqui</a>
+        </div>
     @else
         <div class="alert alert-danger">
-            Não existem perguntas cadastradas.
+            São necessárias no minimo 3 perguntas cadastradas para se responder o questionario.
+            <a href="/cadastrar">Cadastre aqui</a>
         </div>
     @endif
 

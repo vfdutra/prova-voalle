@@ -11,7 +11,9 @@ class PerguntasRespostasController extends Controller
 {
     public function index()
     {
-        return view('formulario-cadastro-perguntas');
+        $perguntas = PerguntasRespostasModel::get(['id_pergunta_resposta'])->toArray();
+        $numeroPerguntas = sizeof($perguntas);
+        return view('formulario-cadastro-perguntas', compact('numeroPerguntas'));
     }
 
     public function store(Request $request)
