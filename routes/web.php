@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PerguntasRespostasController;
+use App\Http\Controllers\QuestionarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+//Route::resource('perguntas-respostas', PerguntasRespostasController::class);
+
+Route::get('/cadastrar', [PerguntasRespostasController::class, 'index']);
+Route::post('/store', [PerguntasRespostasController::class, 'store']);
+Route::get('/questionario', [QuestionarioController::class, 'index']);
