@@ -11,6 +11,7 @@
             <label for="pergunta">Digite aqui a pergunta a ser cadastrada</label>
             <input type="text" class="form-control" name="pergunta" placeholder="Pergunta">
         </div>
+        <br>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="resposta" value="1">
             <label class="form-check-label" for="verdadeiro">
@@ -34,11 +35,12 @@
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
     </form>
+    <br>
 
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong> Atenção!! </strong>
-            Paciente não cadastrado devido aos seguintes erros:
+            Questionário não enviado devido aos seguintes erros:
             <ul>
                 @foreach ($errors->all() as $erro)
                     <li> {{ $erro }} </li>

@@ -24,3 +24,5 @@ Route::get('/', function () {
 Route::get('/cadastrar', [PerguntasRespostasController::class, 'index']);
 Route::post('/store', [PerguntasRespostasController::class, 'store']);
 Route::get('/questionario', [QuestionarioController::class, 'index']);
+Route::post('/questionario/salvar', [QuestionarioController::class, 'store']);
+Route::get('/ranking', [PerguntasRespostasController::class, 'ranking']);

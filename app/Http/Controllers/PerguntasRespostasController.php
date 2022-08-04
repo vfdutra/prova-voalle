@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PerguntasRespostasModel;
+use App\Models\Usuario;
 use Exception;
 
 class PerguntasRespostasController extends Controller
@@ -28,14 +29,19 @@ class PerguntasRespostasController extends Controller
             'integer'  => 'O campo :attribute deve ser um número inteiro',
         ];
 
-        //dd($request);
-
         $request->validate($regras, $msgs);
+
         try {
             PerguntasRespostasModel::create($request->all());
             return redirect()->back()->with('mensagem', 'Pergunta cadastrada com sucesso!');
         } catch (Exception $e) {
             dd($e->getMessage());
         }
+    }
+
+    public function ranking()
+    {
+        $usuarios = Usuario::orderBy('pontuacao', 'desc')->get();
+        return view('ranking', compact('usuarios'));
     }
 }
